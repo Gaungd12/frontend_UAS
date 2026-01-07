@@ -1,9 +1,17 @@
 import MovieCard from "./MovieCard";
 
 export default function MovieList({ movies }) {
+  if (movies.length === 0) {
+    return (
+      <p className="empty">
+        🎞️ Film tidak ditemukan
+      </p>
+    );
+  }
+
   return (
     <div className="movie-list">
-      {movies?.map((movie) => (
+      {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>

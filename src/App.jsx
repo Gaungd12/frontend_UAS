@@ -5,25 +5,32 @@ import MovieList from "./components/MovieList";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     getMovies().then((data) => {
       setMovies(data);
+      setFiltered(data);
     });
   }, []);
 
   const handleSearch = (query) => {
-    if (!query) return;
-    const filtered = movies.filter((movie) =>
+    if (!query) {
+      setFiltered(movies);
+      return;
+    }
+
+    const result = movies.filter((movie) =>
       movie.title.toLowerCase().includes(query.toLowerCase())
     );
-    setMovies(filtered);
+
+    setFiltered(result);
   };
 
   return (
     <>
       <Navbar onSearch={handleSearch} />
-      <MovieList movies={movies} />
+      <MovieList movies={filtered} />
     </>
   );
 }
