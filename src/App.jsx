@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMovies } from "./api";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
+import Hero from "./components/Hero";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -17,19 +18,19 @@ function App() {
   const handleSearch = (query) => {
     if (!query) {
       setFiltered(movies);
-      return;
+    } else {
+      setFiltered(
+        movies.filter((m) =>
+          m.title.toLowerCase().includes(query.toLowerCase())
+        )
+      );
     }
-
-    const result = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(query.toLowerCase())
-    );
-
-    setFiltered(result);
   };
 
   return (
     <>
       <Navbar onSearch={handleSearch} />
+      <Hero movie={filtered[0]} />
       <MovieList movies={filtered} />
     </>
   );
