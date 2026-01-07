@@ -1,6 +1,6 @@
-# Dokumentasi Deployment - [Nama Aplikasi Anda]
+# Dokumentasi Deployment - [MovieVerse]
 
-**URL Publik:** [Masukkan Link Vercel/Netlify Anda di sini]
+**URL Publik:** [(https://frontend-uas-ten.vercel.app/)]
 
 ## Deskripsi
 Saya men-deploy aplikasi ini menggunakan Vercel karena platform ini memberikan integrasi otomatis dengan GitHub dan proses build yang sangat cepat untuk framework React.
