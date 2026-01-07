@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPopularMovies, searchMovies } from "./api";
+import { getMovies } from "./api";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
 
@@ -7,15 +7,17 @@ function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    getPopularMovies().then((data) => {
-      setMovies(data.results);
+    getMovies().then((data) => {
+      setMovies(data);
     });
   }, []);
 
-  const handleSearch = async (query) => {
+  const handleSearch = (query) => {
     if (!query) return;
-    const data = await searchMovies(query);
-    setMovies(data.results);
+    const filtered = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setMovies(filtered);
   };
 
   return (

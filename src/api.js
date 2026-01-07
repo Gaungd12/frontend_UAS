@@ -1,16 +1,6 @@
-const API_KEY = "ISI_API_KEY_KAMU";
-const BASE_URL = "https://api.themoviedb.org/3";
+const BASE_URL = "https://ghibliapi.vercel.app";
 
-export const getPopularMovies = async () => {
-  const response = await fetch(
-    `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-  );
-  return response.json();
-};
-
-export const searchMovies = async (query) => {
-  const response = await fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
-  );
+export const getMovies = async () => {
+  const response = await fetch(`${BASE_URL}/films`);
   return response.json();
 };
