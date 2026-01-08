@@ -7,7 +7,7 @@ Saya men-deploy aplikasi ini menggunakan Vercel karena platform ini memberikan i
 
 ## Screenshot
 ### Tampilan Desktop
-![Desktop Screenshot](./path/ke/foto-desktop.png)
+![Desktop Screenshot](DESKTOP.png)
 
 ### Tampilan Mobile
-![Mobile Screenshot](./path/ke/foto-mobile.png)
+![Mobile Screenshot](MOBILE.png)
